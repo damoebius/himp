@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Test Himp</title>
+</head>
+<body>
+<script src="release/Himp.js"></script>
+
+<script>
+    var t0 = new Date().getTime();
+    // Auto launch
+    document.onreadystatechange = function () {
+        if (document.readyState === "interactive") {
+            bench("page loaded");
+            var xhr = new XMLHttpRequest();
+            xhr.open( "GET", "img.jpg", true );
+            xhr.responseType = "arraybuffer";
+
+            xhr.onload = function( e ) {
+                var arrayBufferView = new Uint8Array(this.response);
+                bench("imagedata loaded");
+                Himp.read(arrayBufferView,"image/jpeg")
+            }
+            xhr.send();
+
+
+
+        }
+    }
+
+    var bench = function(message){
+        var t1 = new Date().getTime();
+        console.log(message + ":" + (t1-t0) + "ms");
+        t0 = t1;
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "Himp",
+  "description": "An image processing library for Javascript written entirely in Haxe, with zero native dependencies.",
+  "keywords": [
+    "haxe",
+    "image",
+    "library"
+  ],
+  "author": "David Mouton",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "main": "",
+  "preferGlobal": false,
+  "devDependencies": {
+    "taminahx": "1.2.0",
+    "mconsole-npm": ">=1.6.1",
+    "msignal": ">=1.2.3"
+  }
+}
